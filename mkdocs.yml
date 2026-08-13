@@ -21,4 +21,5 @@ theme:
       accent: indigo
       toggle:
         icon: material/weather-night
-        name: Switch to dark mode 
+        name: Switch to dark mode
+use_directory_urls: false

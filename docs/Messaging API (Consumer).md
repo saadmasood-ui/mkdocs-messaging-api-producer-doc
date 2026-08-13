@@ -7,7 +7,7 @@ ________________________________________
 The Consumer Service API allows subsystems to register as   consumers of LGS Messaging topics and retrieve messages   published to those topics.  
 Each subsystem is identified by a numeric ID, which maps to a   subsystem type based on predefined ID ranges.  
 Subsystem ID Mapping  
-Each numeric subsystem ID corresponds to a subsystem type.    This should be an enumerated type.  
+Each numeric subsystem ID corresponds to a subsystem type..    This should be an enumerated type.  
   
 |ID Range | Subsystem | 
 |---------| --------- |
@@ -19,13 +19,13 @@ Each numeric subsystem ID corresponds to a subsystem type.    This should be an 
 |3000 – 3999|	Director  |
 |4000 – 4999|	Assembly  |
 |5000 – 5999|	Network   |
-|6000 – 6999|	Farmer    |
+|6000 – 6999|	Farmer    |  
   
   
 ## Package  
 The API endpoints will be wrapped around in a package.  The   package will hide the endpoints from the end user and instead   expose the following methods:  
 ________________________________________  
-  
+
 ## Register() 
    Registers the subsystem to the messaging system consumer.  
 

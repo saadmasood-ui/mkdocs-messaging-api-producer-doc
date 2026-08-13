@@ -23,7 +23,8 @@ The Messaging API provides wrapper methods for publishing
 
 ## Package
 The API endpoints will be wrapped around in a package.  The   package will hide the endpoints from the end user and instead   expose the following methods:  
-________________________________________
+________________________________________  
+  
 ## SendEquipmentAlert()  
 Parameters  
   
@@ -37,13 +38,22 @@ Parameters
 | SourceSubsystem_webhook	| object	| Yes	|Takes the user straight to the alert details | 
   
 Return value – a data structure containing the consumer token, the data and any error codes  
+    enum LGS_MSG_ERROR = {
+        "LGS_MSG_SUCCESS" = 200, 
+        "LGS_MSG_BAD_REQUEST" = 400, 
+        "LGS_MSG_NOT_FOUND" = 404, 
+        "LGS_MSG_METHOD_NOT_ALLOWED" = 405, 
+        "LGS_MSG_INTERNAL_SERVER_ERROR" = 500
+    }  
   
+
 enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}  
   
 getErrorDescription()  
 Parameter: error code  
 Return value: the error description.  
-________________________________________
+________________________________________  
+
 ## SendHVACAlert()  
 Parameters  
   
@@ -56,9 +66,15 @@ Parameters
 alert_urgency_level (integer) – 4 levels of alert.  Document   what the four levels of alert are here).	| string	|Yes	|Alert  urgency level  |
 |SourceSubsystem_webhook	|object	| Yes	|Takes the user straight to the alert details    
   
-Return value  
-  
-enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}  
+Return value 
+
+enum LGS_MSG_ERROR = {
+        "LGS_MSG_SUCCESS" = 200, 
+        "LGS_MSG_BAD_REQUEST" = 400, 
+        "LGS_MSG_NOT_FOUND" = 404, 
+        "LGS_MSG_METHOD_NOT_ALLOWED" = 405, 
+        "LGS_MSG_INTERNAL_SERVER_ERROR" = 500
+    }
   
 getErrorDescription()  
 Paremeter – error code  
@@ -288,8 +304,25 @@ Parameters
   
 |Field|	Type|	Required|	Description| 
 |-----|-----|---------|------------|
-|harvest_id|	String (uuid)	|Yes|	Unique feedback identifier|  
-|Harvest_Data|	HarvestJSON Object| 	No|	The harvest data| 
+|harvest_id|	String (uuid)	|Yes|	Unique harvest identifier|  
+|grow_unit_id|	String (uuid)| 	No|	Unique grow unit identifier|  
+|grow_room_id| String (uuid)| No | Unique grow room identifier|
+|grow_formula_id| String (uuid)| No | Unique grow formula identifier|  
+|microgreen_tray_formula_id| String (uuid) | No | Unique microgreen Tray Formula Id|  
+|expected_harvested_duration| number | No | Expected Harvest Duration in days|  
+|farm_id| String (uuid) | No | Unique farm id |  
+|Harvest_Lot_id | String (uuid) | No | Unique Harvest lot identifier|  
+|Yield| number | No | The Yield|  
+|Grade| string | No | The grade quality of the harvest|
+|Color| string | No | THe color of the harvest|  
+|width| number | No | The width of the harvest|  
+|height | number | No | The height of the harvest|
+|Brix_level|Number|No|The water solubility of the growing formula|  
+|Vertical_Acre_Id| String (uuid) | No | The unique Vertical Acre Id|  
+|Quarant_Id| string (uuid) | No | The unique quadrant Id|  
+
+
+
 
 Return value  
   
