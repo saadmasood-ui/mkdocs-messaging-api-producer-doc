@@ -1,0 +1,1999 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="Messaging%20API%20%28Consumer%29.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>LGS Messaging API (Producer) - Local Grown Salads Messaging API (Producer)</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lgs-messaging-api-producer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Local Grown Salads Messaging API (Producer)" class="md-header__button md-logo" aria-label="Local Grown Salads Messaging API (Producer)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Local Grown Salads Messaging API (Producer)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LGS Messaging API (Producer)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome to MkDocs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Messaging%20API%20%28Consumer%29.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  LGS Messaging API (Consumer)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="Messaging%20API%20%28Producer%29.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  LGS Messaging API (Producer)
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Local Grown Salads Messaging API (Producer)" class="md-nav__button md-logo" aria-label="Local Grown Salads Messaging API (Producer)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Local Grown Salads Messaging API (Producer)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Messaging%20API%20%28Consumer%29.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LGS Messaging API (Consumer)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LGS Messaging API (Producer)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Messaging%20API%20%28Producer%29.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LGS Messaging API (Producer)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendequipmentalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendEquipmentAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendhvacalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendHVACAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-error-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Error Responses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendverticalacrealert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendVerticalAcreAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendtemperatureoutofsyncalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendTemperatureOutOfSyncAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendincubatoralert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendIncubatorAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendgrowerroomalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendGrowerRoomAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendsubsystemalerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendSubsystemAlerts()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendseedcartridgerecall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendSeedCartridgeRecall()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendlotrecall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendLotRecall()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendboxrecall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendBoxRecall()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendpaletterecall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendPaletteRecall()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendgerminatorsensordata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendGerminatorSensorData()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendharvestdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendHarvestData()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendfeedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendFeedback()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendqrscancode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendQRScanCode()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendfoodsafetydata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendFoodSafetyData()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SendFoodSafetyData()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geterrordescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getErrorDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-error-responses_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Error Responses
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendequipmentalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendEquipmentAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendhvacalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendHVACAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-error-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Error Responses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendverticalacrealert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendVerticalAcreAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendtemperatureoutofsyncalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendTemperatureOutOfSyncAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendincubatoralert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendIncubatorAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendgrowerroomalert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendGrowerRoomAlert()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendsubsystemalerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendSubsystemAlerts()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendseedcartridgerecall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendSeedCartridgeRecall()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendlotrecall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendLotRecall()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendboxrecall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendBoxRecall()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendpaletterecall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendPaletteRecall()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendgerminatorsensordata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendGerminatorSensorData()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendharvestdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendHarvestData()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendfeedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendFeedback()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendqrscancode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendQRScanCode()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendfoodsafetydata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SendFoodSafetyData()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SendFoodSafetyData()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geterrordescription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getErrorDescription
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-error-responses_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared Error Responses
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lgs-messaging-api-producer">LGS Messaging API (Producer)</h1>
+<h2 id="overview">Overview</h2>
+<p>The Messaging API provides wrapper methods for publishing<br />
+ different types of operational messages including:  </p>
+<p>•   EquipmentAlerts (SourceSubsystem_webhook object)<br />
+•   Vertical-Acre Alerts<br />
+•   HVAC Alerts<br />
+•   Temperature Out-of-sync alerts<br />
+•   Seed cartridge recall messages (SourceSubsystem_webhook object)<br />
+•   Lot recall messages<br />
+•   Box/Carton recall messages<br />
+•   Palette recall messages<br />
+•   Sensor data<br />
+•   Harvest data<br />
+•   Feedback<br />
+•   QR scan data<br />
+•   Food safety data  </p>
+<h2 id="package">Package</h2>
+<p>The API endpoints will be wrapped around in a package.  The   package will hide the endpoints from the end user and instead   expose the following methods:  </p>
+<hr />
+<h2 id="sendequipmentalert">SendEquipmentAlert()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alert_component</td>
+<td>string</td>
+<td>Yes</td>
+<td>Component that generated the alert</td>
+</tr>
+<tr>
+<td>alert_component_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Entity associated with the alert</td>
+</tr>
+<tr>
+<td>Message_id</td>
+<td>uuid string</td>
+<td>Yes</td>
+<td>Unique alert identifier</td>
+</tr>
+<tr>
+<td>EquipmentAlert_data</td>
+<td>String</td>
+<td>Yes</td>
+<td>Detailed alert information</td>
+</tr>
+<tr>
+<td>alert_urgency_level</td>
+<td>integer.  4 levels of alert.  Document   what the four levels of alert are here).    string</td>
+<td>Yes</td>
+<td>Alert urgency level</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+<td>Takes the user straight to the alert details</td>
+</tr>
+</tbody>
+</table>
+<p>Return value – a data structure containing the consumer token, the data and any error codes  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}  </p>
+<p>getErrorDescription()<br />
+Parameter: error code<br />
+Return value: the error description.  </p>
+<hr />
+<h2 id="sendhvacalert">SendHVACAlert()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field  Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alert_component</td>
+<td>string</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>alert_component_id</td>
+<td>string</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Message_id</td>
+<td>uuid string</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HVACAlert_data</td>
+<td>String</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>alert_urgency_level (integer) – 4 levels of alert.  Document   what the four levels of alert are here).</td>
+<td>string</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}  </p>
+<p>getErrorDescription()<br />
+Paremeter – error code<br />
+Return value - get the error description.  </p>
+<h2 id="shared-error-responses">Shared Error Responses</h2>
+<p>HTTP Code   Condition   Example Response<br />
+400 Bad Request The request body is malformed or required fields are missing.   {<br />
+"error": "Invalid request body." <br />
+}  </p>
+<p>404 Not Found   The requested endpoint does not exist   {<br />
+"error": "Endpoint not found."<br />
+}  </p>
+<p>405 Method Not Allowed  Request uses a method other than POST   {
+"error": "Method Not Allowed. Use POST."
+}</p>
+<p>500 Internal Server Error   The server encountered an unexpected error while processing the request.    {
+"error": "Internal server error."
+}</p>
+<p>500 {Messaging system} Connection Error {Messaging system} connection refused   {
+"error": "{Messaging system}Error: connection refused."
+}</p>
+<p>500 {Messaging system} Publish Timeout  {Messaging system} broker request timed out {
+"error": "{Messaging system}Error:  connection timed out."
+}</p>
+<p>500 {Messaging system} Serialization Error  Failed to serialize {Messaging system} message payload  {
+"error": "{Messaging system}Error: failed to serialize message."
+}</p>
+<hr />
+<h2 id="sendverticalacrealert">SendVerticalAcreAlert()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alert_component</td>
+<td>string</td>
+<td>Yes</td>
+<td>Component that generated the alert</td>
+</tr>
+<tr>
+<td>alert_component_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Entity associated with the alert</td>
+</tr>
+<tr>
+<td>Message_id</td>
+<td>uuid string</td>
+<td>Yes</td>
+<td>Unique alert identifier</td>
+</tr>
+<tr>
+<td>VerticalAcreAlert_data</td>
+<td>String</td>
+<td>Yes</td>
+<td>Detailed alert information</td>
+</tr>
+<tr>
+<td>alert_urgency_level</td>
+<td>integer – 4 levels of alert.  Document   what the four levels of alert are here).</td>
+<td>Yes</td>
+<td>Alert urgency level</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+<td>Takes the user straight to the alert details</td>
+</tr>
+</tbody>
+</table>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500} <br />
+Call getErrorDescription() to get the error description.  </p>
+<h2 id="sendtemperatureoutofsyncalert">SendTemperatureOutOfSyncAlert()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alert_component</td>
+<td>string</td>
+<td>Yes</td>
+<td>Component that generated the alert</td>
+</tr>
+<tr>
+<td>alert_component_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Entity associated with the</td>
+</tr>
+<tr>
+<td>alert</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Message_id</td>
+<td>uuid string</td>
+<td>Yes</td>
+<td>Unique alert identifier</td>
+</tr>
+<tr>
+<td>TemperatureOutOfSyncAlert_data</td>
+<td>String</td>
+<td>Yes</td>
+<td>Detailed alert information</td>
+</tr>
+<tr>
+<td>alert_urgency_level</td>
+<td>integer – 4 levels of alert.  Document   what the four levels of alert are here).</td>
+<td>string</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+<td>Takes the user straight to the alert details</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}</p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<h2 id="sendincubatoralert">SendIncubatorAlert()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alert_component</td>
+<td>string</td>
+<td>Yes</td>
+<td>Component that generated the alert</td>
+</tr>
+<tr>
+<td>alert_component_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Entity associated with the   alert</td>
+</tr>
+<tr>
+<td>Message_id</td>
+<td>uuid string</td>
+<td>Yes</td>
+<td>Unique alert identifier</td>
+</tr>
+<tr>
+<td>IncubatorAlert_data</td>
+<td>String (should be an alert specific object).</td>
+<td>Yes</td>
+<td>Detailed alert information</td>
+</tr>
+<tr>
+<td>alert_urgency_level</td>
+<td>integer – 4 levels of alert.  Document   what the four levels of alert are here).</td>
+<td>Yes</td>
+<td>Alert  urgency level</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+<td>Takes the user straight</td>
+</tr>
+<tr>
+<td>to the alert details</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<h2 id="sendgrowerroomalert">SendGrowerRoomAlert()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alert_component</td>
+<td>string</td>
+<td>Yes</td>
+<td>Component that generated the alert</td>
+</tr>
+<tr>
+<td>alert_component_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Entity associated with the   alert</td>
+</tr>
+<tr>
+<td>Message_id</td>
+<td>uuid</td>
+<td>string</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>GrowerRoomAlert_data</td>
+<td>String (should be an alert specific object).</td>
+<td>Yes</td>
+<td>Detailed alert information</td>
+</tr>
+<tr>
+<td>alert_urgency_level (integer)</td>
+<td>4 levels of alert.  Document   what the four levels of alert are here).  string</td>
+<td>Yes</td>
+<td>Alert  urgency level</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+<td>Takes the user straight to  the alert details</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<h2 id="sendsubsystemalerts">SendSubsystemAlerts()</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alert_component</td>
+<td>string</td>
+<td>Yes</td>
+<td>Component that generated the alert</td>
+</tr>
+<tr>
+<td>alert_component_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Entity associated with the   alert</td>
+</tr>
+<tr>
+<td>alert_id</td>
+<td>uuid string</td>
+<td>Yes</td>
+<td>Unique alert identifier</td>
+</tr>
+<tr>
+<td>alert_data</td>
+<td>String</td>
+<td>Yes</td>
+<td>Detailed alert information</td>
+</tr>
+<tr>
+<td>alert_type</td>
+<td>(integer)   string</td>
+<td>Yes</td>
+<td>Type/category of alert</td>
+</tr>
+<tr>
+<td>alert_urgency_level</td>
+<td>(integer) – 4 levels of alert.  Document   what the four levels of alert are here).    string</td>
+<td>Yes</td>
+<td>Alert  urgency level</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+<td>Takes the user straight   to the alert details</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<hr />
+<h2 id="sendseedcartridgerecall">SendSeedCartridgeRecall()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique recall identifier</td>
+</tr>
+<tr>
+<td>Recall_source</td>
+<td>String</td>
+<td>Yes</td>
+<td>What LGS sub-system the recall   originated from (for instance, Assembly, Farmer, LGS Retailer   etc</td>
+</tr>
+<tr>
+<td>Recall_reason</td>
+<td>string</td>
+<td>Yes</td>
+<td>The reason for the recall.  For  example, problems found in seed cartridges or nutrient   packages or someone who does packaging is sick etc</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+<td>Takes the user straight to the recall details</td>
+</tr>
+<tr>
+<td>Recalled_lot_id</td>
+<td>string</td>
+<td>Yes Lot Id where the recall occurred.</td>
+<td></td>
+</tr>
+<tr>
+<td>Recalled_Palette_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Palette Id where the recall  occurred.</td>
+</tr>
+<tr>
+<td>Recalled_Carton_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Carton Id where the recall   occurred.</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<h2 id="sendlotrecall">SendLotRecall()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique recall identifier</td>
+</tr>
+<tr>
+<td>Recall_source</td>
+<td>String</td>
+<td>Yes</td>
+<td>What LGS sub-system the recall   originated from (for instance, Assembly, Farmer, LGS Retailer   etc</td>
+</tr>
+<tr>
+<td>Recall_reason</td>
+<td>string</td>
+<td>Yes</td>
+<td>The reason for the recall.  For   example, problems found in seed cartridges or nutrient   packages or someone who does packaging is sick etc</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+<td>Takes the user straight to the recall details</td>
+</tr>
+<tr>
+<td>Recalled_lot_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Lot Id where the recall occurred.</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<h2 id="sendboxrecall">SendBoxRecall()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique recall identifier</td>
+</tr>
+<tr>
+<td>Recall_source</td>
+<td>String</td>
+<td>Yes</td>
+<td>What LGS sub-system the recall   originated from (for instance, Assembly, Farmer, LGS Retailer   etc</td>
+</tr>
+<tr>
+<td>Recall_reason</td>
+<td>string</td>
+<td>Yes</td>
+<td>The reason for the recall.  For   example, problems found in seed cartridges or nutrient   packages or someone who does packaging is sick etc</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Recalled_Carton_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Carton Id where the recall   occurred.</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<h2 id="sendpaletterecall">SendPaletteRecall()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique recall identifier</td>
+</tr>
+<tr>
+<td>Recall_source</td>
+<td>String</td>
+<td>Yes</td>
+<td>What LGS sub-system the recall   originated from (for instance, Assembly, Farmer, LGS Retailer   etc</td>
+</tr>
+<tr>
+<td>Recall_reason</td>
+<td>string</td>
+<td>Yes</td>
+<td>The reason for the recall.  For   example, problems found in seed cartridges or nutrient  packages or someone who does packaging is sick etc</td>
+</tr>
+<tr>
+<td>SourceSubsystem_webhook</td>
+<td>object</td>
+<td>Yes</td>
+<td>Takes the user straight to   the recall details</td>
+</tr>
+<tr>
+<td>Recalled_Palette_id</td>
+<td>string</td>
+<td>Yes</td>
+<td>Palette Id where the recall   occurred.</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<h2 id="sendgerminatorsensordata">SendGerminatorSensorData()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sensor_id</td>
+<td>String (uuid)</td>
+<td>Yes</td>
+<td>Unique sensor message identifier</td>
+</tr>
+<tr>
+<td>Sensor_Data</td>
+<td>SensorJSON Object</td>
+<td>No</td>
+<td>Additional sensor</td>
+</tr>
+<tr>
+<td>specific information</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<h2 id="sendharvestdata">SendHarvestData()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>harvest_id</td>
+<td>String (uuid)</td>
+<td>Yes</td>
+<td>Unique harvest identifier</td>
+</tr>
+<tr>
+<td>grow_unit_id</td>
+<td>String (uuid)</td>
+<td>No</td>
+<td>Unique grow unit identifier</td>
+</tr>
+<tr>
+<td>grow_room_id</td>
+<td>String (uuid)</td>
+<td>No</td>
+<td>Unique grow room identifier</td>
+</tr>
+<tr>
+<td>grow_formula_id</td>
+<td>String (uuid)</td>
+<td>No</td>
+<td>Unique grow formula identifier</td>
+</tr>
+<tr>
+<td>microgreen_tray_formula_id</td>
+<td>String (uuid)</td>
+<td>No</td>
+<td>Unique microgreen Tray Formula Id</td>
+</tr>
+<tr>
+<td>expected_harvested_duration</td>
+<td>number</td>
+<td>No</td>
+<td>Expected Harvest Duration in days</td>
+</tr>
+<tr>
+<td>farm_id</td>
+<td>String (uuid)</td>
+<td>No</td>
+<td>Unique farm id</td>
+</tr>
+<tr>
+<td>Harvest_Lot_id</td>
+<td>String (uuid)</td>
+<td>No</td>
+<td>Unique Harvest lot identifier</td>
+</tr>
+<tr>
+<td>Yield</td>
+<td>number</td>
+<td>No</td>
+<td>The Yield</td>
+</tr>
+<tr>
+<td>Grade</td>
+<td>string</td>
+<td>No</td>
+<td>The grade quality of the harvest</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>string</td>
+<td>No</td>
+<td>THe color of the harvest</td>
+</tr>
+<tr>
+<td>width</td>
+<td>number</td>
+<td>No</td>
+<td>The width of the harvest</td>
+</tr>
+<tr>
+<td>height</td>
+<td>number</td>
+<td>No</td>
+<td>The height of the harvest</td>
+</tr>
+<tr>
+<td>Brix_level</td>
+<td>Number</td>
+<td>No</td>
+<td>The water solubility of the growing formula</td>
+</tr>
+<tr>
+<td>Vertical_Acre_Id</td>
+<td>String (uuid)</td>
+<td>No</td>
+<td>The unique Vertical Acre Id</td>
+</tr>
+<tr>
+<td>Quarant_Id</td>
+<td>string (uuid)</td>
+<td>No</td>
+<td>The unique quadrant Id</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<hr />
+<h2 id="sendfeedback">SendFeedback()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>feedback_id</td>
+<td>String (uuid)</td>
+<td>Yes</td>
+<td>Unique feedback identifier</td>
+</tr>
+<tr>
+<td>Feedback_Data</td>
+<td>FeedbackJSON Object</td>
+<td>No</td>
+<td>Additional sensor  specific information</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<pre><code>The method signature is:
+</code></pre>
+<p>getErrorDescription<br />
+    Parameter   error code (int)<br />
+    Return value    error description (string)<br />
+The error codes are described in the table below:  </p>
+<hr />
+<h2 id="sendqrscancode">SendQRScanCode()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QRScan_id</td>
+<td>String (uuid)</td>
+<td>Yes</td>
+<td>Unique feedback identifier</td>
+</tr>
+<tr>
+<td>QRScan_Data</td>
+<td>QRScanJSON Object</td>
+<td>No</td>
+<td>The QR Scan data</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<pre><code>The method signature is:
+</code></pre>
+<p>getErrorDescription<br />
+    Parameter   error code (int)<br />
+    Return value    error description (string)<br />
+The error codes are described in the table below:  </p>
+<hr />
+<h2 id="sendfoodsafetydata">SendFoodSafetyData()</h2>
+<p>Parameters  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product_id</td>
+<td>uuid string</td>
+<td>Yes</td>
+<td>Unique product identifier</td>
+</tr>
+<tr>
+<td>Hazard_id</td>
+<td>uuid_string</td>
+<td>No</td>
+<td>Unique hazard Id</td>
+</tr>
+<tr>
+<td>CAS_number</td>
+<td>uuid string</td>
+<td>No</td>
+<td>Unique numeric identifier  assigned by the Chemical Abstracts Service to every</td>
+</tr>
+<tr>
+<td>chemical substance described in scientific literature</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(First part contains 2-7 digits, second part contains 2   digits, third part contains a single check digit used to  verify accuracy.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CS_Distribution_ID</td>
+<td>uuid string</td>
+<td>No</td>
+<td>A distribution ID</td>
+</tr>
+<tr>
+<td>Hairnet</td>
+<td>Bool</td>
+<td>No</td>
+<td>Did staff wear hairnet during food</td>
+</tr>
+<tr>
+<td>handling</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Gloves</td>
+<td>Bool</td>
+<td>No</td>
+<td>Did staff wear gloves during</td>
+</tr>
+<tr>
+<td>food handling</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Handwashing</td>
+<td>Bool</td>
+<td>No</td>
+<td>Did staff wash hands frequently</td>
+</tr>
+<tr>
+<td>Facility_Maintenance_Data</td>
+<td>String</td>
+<td>No</td>
+<td>Does the facility</td>
+</tr>
+<tr>
+<td>have non-absorbent, easy-to-clean walls and floors with   proper drainage and ventilation to stop condensation</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Equipment_Sanitation_data</td>
+<td>string</td>
+<td>No</td>
+<td>Does the equipment   utilize food-grade, non-corrosive metals that allow complete   disassembly for deep cleaning and testing.</td>
+</tr>
+</tbody>
+</table>
+<p>Return value  </p>
+<p>enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}   </p>
+<p>Call getErrorDescription() to get the error description.  </p>
+<pre><code>The method signature is:
+</code></pre>
+<h3 id="geterrordescription">getErrorDescription</h3>
+<pre><code>Parameter   error code (int)  
+Return value    error description (string)
+</code></pre>
+<p>The returned status  codes from each Send...method is   represented as an enum struct with each response code tied to a specific message.  </p>
+<h2 id="shared-error-responses_1">Shared Error Responses</h2>
+<table>
+<thead>
+<tr>
+<th>Return value</th>
+<th>Condition</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>The request body is malformed or required   fields are missing.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>The requested endpoint does not exist</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed</td>
+<td>Request uses a method other than POST</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>The server encountered an   unexpected error while processing the request.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>{Messaging system} Connection Error</td>
+<td>{Messaging system} connection refused</td>
+</tr>
+<tr>
+<td>500</td>
+<td>{Messaging system} Publish Timeout</td>
+<td>{Messaging system}   broker request timed out</td>
+</tr>
+<tr>
+<td>500</td>
+<td>{Messaging system} Serialization Error</td>
+<td>Failed to   serialize {Messaging system} message payload</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "search.highlight", "search.suggest", "content.code.annotate", "content.code.copy", "content.code.expand", "content.code.tabbed"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,42 @@
+yamlname: Deploy MkDocs to GCS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Required if using Workload Identity Federation
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+
+      - name: Install MkDocs and Dependencies
+        run: |
+          pip install mkdocs mkdocs-material
+
+      - name: Build MkDocs Site
+        run: mkdocs build
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDRcri0ecU33zTW\niLWZYPQdqm+a+PQ+y+HIa9uVBVEa4jM2/GwKuf6WzaK7GyoGHRKySRQxYiSyXRhn\nq4WkClWUD4NgnxxFiVKLv6mbYTxsUyJajC51wucOIwPFk9xjTd9MrN0GuZS4b803\nwjcQa/r0DKyI7mMT3V1wkx1dAzhpJqYl51agPeO0jN8kkYovD2M4Ka5pvB/eyOOB\nAqiwNHexBTBB4A2GUj6PcwQiH637W8i/hFzfGW4VjMA8Dx5c416xoim5OboZxqy7\n+sNCammvcb0u4xc1ZMYCJF1yQbqE2v9SFkCFIre+aivQMuw01u5cbhU39MEMR1w+\nsZOI4Vc9AgMBAAECggEAGwiutIS/Iu4JeONeZTSxbZ7RFvSpOe3A78iUKBDungSy\nTZeZLm1BYh+asIHaE73u6top5BHh4K/JdaAa+MhosVqrP25qDMOjxuvvLWIIlYbJ\neVx8prCIeDemxfrGyH6FovTw9mw/uOqdV2QXDWSSmKuGHYp/eVHqPJyQfq/quQ+L\nIpzDubQZMYJDVuT9T8VxlroVjKtx2V7hRfE+RIOF9r0ZG+vDw3sbjSldjqjT8TKO\nPYNjHjMP6WZ3apEq4AcYdpYsghm/mojg3nbGG8wyPmvlFNk7EEPi19yjEXGx+yrC\n84ecSLRfyXWeze2A9Ot9yvn0ihnYBNSatVurCNWnlQKBgQD1x73yfGUlVbBv1zox\nx3Yvl/gIRq/DcFC3bCyHDqQpgNM/hqyzofAABKSS2xQ7iGsF0VQLuCuNrsAgNbQL\nSqz2mQTCn+eqqSNDUpcuEBdLLnfqNwqXfzyLvcBX3fKboZIZn4e+wTIL8twRlitT\nAAFx+4Nbo2k1t9hh//CZDQGu8wKBgQDaKDwk9zaQYbjo7UZFOYtrurb7bWA8cs4p\ndC52694CCXxseofykI6zWgYi1VzmBmZpxY5TtOuxuJcnopbU7xuMRVNBBNrFIlys\nZ6y+L744isbvi3ZTirr4/wMPK6Jkrg8PVNfunTaI77zxSy4JaTypykWuiEbXmqBS\nOP4J33NNDwKBgQC7WfA0OJjNdd1R08mbioVP0FMU0/VFUIdm2oGyzflbXcUqJpnd\nMHMHQILHI1Lv8pRKUf/0Ewa4MN5pbyZ4eQsRyyDyzvvEfrvPpNRzG3b2K0zjb+OW\nCjp390P4dspp0ibRe2b5hMGGlDEnAsaxtU5kuamvIAiiFytNwNCBioWe+wKBgQCf\nh+67hYCEQsIKq4DInJUk+YxX/pryeW3jiI917XQS/0bauRvzONzxsPJtxKNDnwiD\nbrFu6w20j+0RUeeE3TnC8Os5z8f/gupMNSBwj89F384sXEryOrAR58If9OOzRknD\nB2NEnfjEWLRNq5GF1kxDSaR9RjCv9+YnWoADTkEt5wKBgHNq2L4ze0ky1ElnnMxx\ngX/UoSgONmrfmQ4ZGSmy5aVsI2icyHgYDFlr0PmTIHZ4wCbHh8WMVAtXzy7w7cI1\nGQDCdkmiDpWjUiYOsqgFXWAdkyARx6qAVLf6hyiupMtaJ7JmQuUcktSmoGzj+F90\ncY/Vm8YsjGpTB23juxjsMBIY }}
+
+      - name: Upload to Google Cloud Storage
+        uses: google-github-actions/upload-cloud-storage@v2
+        with:
+          path: 'site/'
+          destination: 'lgs_messaging'
+          parent: false
