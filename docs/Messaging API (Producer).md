@@ -43,13 +43,13 @@ Return value – a data structure containing the consumer token, the data and an
         "LGS_MSG_BAD_REQUEST" = 400, 
         "LGS_MSG_NOT_FOUND" = 404, 
         "LGS_MSG_METHOD_NOT_ALLOWED" = 405, 
-        "LGS_MSG_INTERNAL_SERVER_ERROR" = 500
+        "LGS_MSG_INTERNAL_SERVER_ERROR" = 500  
     }  
   
 
 enum errorCode = {"Success" = 200, "Bad request" = 400, "Not Found=404, "Method Not Allowed" = 405, "Internal Server error" 500}  
   
-getErrorDescription()  
+Method Name: getErrorDescription()  
 Parameter: error code  
 Return value: the error description.  
 ________________________________________  
